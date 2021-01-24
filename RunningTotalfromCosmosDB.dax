@@ -1,0 +1,7 @@
+// If you have a Cosmos DB with user registrations and you want to create a running total of registrations per day.
+Count of registered user running total in Day = 
+CALCULATE(
+	DISTINCTCOUNT('CosmosDB_Users'[user]),
+	FILTER(
+		ALLSELECTED('CosmosDB_Users'[registered_date].[Date]),
+		ISONORAFTER('CosmosDB_Users'[registered_date].[Date], MAX('CosmosDB_Users'[registered_date].[Date]), DESC)))
