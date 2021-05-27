@@ -1,0 +1,18 @@
+// Use case: You deliver an API service and want to invoice customers based on packages of 100.000 API calls.
+// You want to round up to the next 100.000 calls to sell "packages"
+// You also want a slider to adjust the price to see what you should charge
+
+// You have a table with API calls per customer called APIUsage with coloms "Customer" and "Calls". 
+// Then you want a calculated colomn like this
+API Packages = 
+(ROUNDUP(('APIUsageTable'[Calls] / 1000000),0))
+
+// Then you want to create the What-if values, you can do that by GUI or create a calculated colomn like this
+Euro = GENERATESERIES(5, 100, 5)
+
+// ...and a measure like this
+Euro Value = SELECTEDVALUE('Euro'[Euro], 50)
+
+// Lastly you want a measure like this
+API Calls Cost = SUM(APIUsageTable[API Packages]) * Euro[Euro Value]
+
