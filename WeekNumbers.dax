@@ -2,11 +2,11 @@
 // The last value (2) is for the week to start on monday
 // More tips on working with week numbers: https://insightsoftware.com/blog/working-with-weeks-in-power-bi/
 
-Week Number = WEEKNUM('Daily Online Users'[timestamp].[Date],2)
+Week Number = WEEKNUM('Table1'[timestamp].[Date],2)
 
 
 // If the week numbers are a week off, you can solve that in several ways.
 // A quick fix is to just subtract 1.
 // Here is a link to a more correct way of solving it: https://datacornering.com/how-to-calculate-iso-week-number-in-power-query/
 
-Week Number = WEEKNUM('Daily Online Users'[timestamp].[Date],2) -1
+Week Number = WEEKNUM('Table1'[timestamp].[Date],2) -1
