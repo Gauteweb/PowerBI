@@ -1,0 +1,4 @@
+// Combine the vaules from two columns to a new calculated column to create a unique ID based on one column with CustomerID and one column with UserID.
+// Usefull if your user ID's are not unique globally, only per customer.
+
+UniqueUserID = CONCATENATE('Table1'[CustomerID],'Table1'[UserID])
